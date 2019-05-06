@@ -1,0 +1,8 @@
+extends ./layout.pug  
+block contenido  
+  .nota
+    - var url = post.image.url 
+    .img
+      img( src = url, alt='aceiteros')
+    .titulo #{post.title}
+    .cuerpo !{post.content.extended}

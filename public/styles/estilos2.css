@@ -1,0 +1,455 @@
+/*
+ El body es flex organizado en columnas (flex-direction: column),
+ alineadas verticalmente al centro (align-items: center)
+ los items del body son:
+ -header
+ - section.main
+ - footer
+ */
+body{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	color: #000;
+}
+/*
+	El header es flex organizado en filas,
+	sus items distribuyen el espacio al rededor horizontalmente
+	(justify-content: space-around)
+	y ce centran verticalmtente (align-items:center)
+	ocupa todo el ancho del viewport (width: 100%)
+	hasta llegar a un tamaño de 1000px en el que se clava (max-width:1000px)
+	alto medido dinamicamente de acuerdo al ancho del viewport (height: 8.4vw)
+	tiene una imagen de fondo centrada (background-position: center)
+	, que no se repite, y que ocupa todo el
+	fondo sin estirarse pero recortandose (background-size:cover). Tiene 3 estados
+	posibles, en xs, solo hay dos items:
+	- titulo-
+*/
+header{
+	display: flex !important;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	align-items: stretch;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-size:cover;
+	background-position: center;
+	background-image: url('../imagenes/fondo.fw.png');
+
+}
+
+.img-titulo{
+	height: 6vw;
+	align-self: center;
+	margin-top: 1vw;
+	margin-bottom: 1vw;
+}
+@media (max-width:575px) {
+	.img-titulo{
+		height: 10vw;
+		margin-top: 0.5vw;
+		margin-bottom: 0.5vw;
+	}
+}
+nav{
+	padding: 0 !important;
+	font-weight: bolder;
+}
+
+button.navbar-toggler{
+	font-size: 7vw;
+	color:white;
+	font-weight: 400;
+}
+button.navbar-toggler:focus{
+	border: transparent !important;
+}
+
+a.nav-link{
+	color: white;
+}
+a.nav-link:hover{
+	background-color: rgba(246, 0, 0, 0.35);
+	color: white;
+	position: relative;
+	top: 2px;
+	border-radius: 5px;
+	transition: all 0.3s;
+}
+
+a.dropdown-item:hover{
+	background-color: rgba(246, 0, 0, 0.35);
+	color:white;
+}
+
+		main{
+			display: flex !important;
+			flex-wrap: nowrap;
+			flex-direction: row;
+			justify-content: space-around;
+			background-color: darkgrey;
+			padding: 2vw;
+			min-height: 70vh;
+			background-repeat: no-repeat;
+			background-size:cover;
+			background-position: center;
+			background-image: url('https://pre00.deviantart.net/c0d7/th/pre/i/2012/077/6/8/dark_red_01_texture_by_carlbert-d4t6oem.jpg');
+		}
+
+		 articles {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-start;
+			justify-content: space-around;
+		}
+		aside{
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: flex;
+			flex-direction: column;
+		}
+
+		articles article{
+			width: 30vw;
+			min-width: 270px;
+			min-height: 400px;
+			max-height: 400px;
+			overflow: hidden;
+			position: relative;
+			background-color: rgba(169, 169, 169, 0.863);
+			border-radius: 10px;
+			margin: 10px;
+		}
+		article .img{
+			width: 100%;
+			height: 200px;
+			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: darkgrey;
+		}
+		.blured{
+			filter: blur(10px);
+			width: 100%;
+			height: 200px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			overflow: hidden;
+		}
+		.blured_nota {
+			filter: blur(10px);
+			width: 100%;
+			height: 200px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			overflow: hidden;
+		}
+		article img {
+			object-fit: scale-down;
+			max-width: 100%;
+			max-height: 100%;
+			width: auto;
+			height: auto;
+			position: relative;
+		}
+		.center{
+			display: flex;
+			justify-content: center;
+			align-content: center;
+			max-width: 100vw;
+		}
+		.titulo-container{
+			position: absolute;
+			top: 200px;
+			left: 0px;
+			width: 30vw;
+			min-width: 270px;
+			height: 200px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.contenedor-periodico{
+			margin: 5%;
+		}
+
+		article .titulo{
+			z-index: 2;
+			background-color: rgba(73, 73, 73, 0.85);
+			width: 25vw;
+			min-width: 225px;
+			padding: 20px;
+			border-radius: 20px;
+			color: #fff;
+			font-weight: 700;
+			font-size: 17px;
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+		}
+		article .cuerpo{
+			padding:  50px 20px 0px 20px;
+			font-size: 15px;
+			z-index: 0;
+		}
+
+		article *{
+			transition: all 0.25s ease;
+		}
+		article:hover .img{
+			transform:translateY(-100px) scale(1.3);
+		}
+		article:hover .titulo-container{
+			top:0px;
+		}
+		article:hover .cuerpo{
+			transform: translateY(-80px);
+		}
+		article:active{
+			transform: scale(300%);
+		}
+		.nota{
+			background-color: rgba(255, 255, 255, 0.925);
+			border-radius: 10px;
+			padding: 30px;
+			max-width: 1000px;
+			width: 90vw;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			font-family: Georgia, 'Times New Roman', Times, serif;
+		}
+		.nota h3{
+			font-size: 25px;
+			line-height: 1.25;
+			font-weight: bold;
+		}
+		.nota .img img{
+			width: 100vw;
+		}
+		.post{
+			font-weight: 400;
+			font-size: 17px;
+			line-height: 1.58;
+			letter-spacing: -0.003em;
+			max-width: 80vw;
+		}
+		/**
+		 * Selector de parrafo en notas, clase puesta por keystone
+		 */
+		._2cuy{
+			margin-top: 20px;
+		}
+		._4yxo{
+			font-weight: bold;
+		}
+		.enlace{
+			margin-right: 5%;
+		}
+
+		.quienes {
+			margin-top:0px;
+			margin-right: 20px;
+			margin-left: 5px;
+			text-align: justify;
+		}
+
+			footer {
+				background: #000;
+				color: #fff;
+				clear:both;
+				padding: 20px;
+				text-align:center;
+				display: flex;
+				flex-direction: column;
+				flex-wrap: wrap;
+			}
+			i.fa.fa-facebook-square, i.fa.fa-envelope-square {
+				font-size: 100px;
+			}
+			i.fa.fa-envelope-square{
+				color: rgba(255, 0, 0, 0.788);
+			}
+			.formulario-contacto{
+				color: white;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-content: center;
+			}
+
+			.contacto-footer-contenedor{
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-around;
+			}
+			@media (max-width: 500px) {
+				.mail{
+					font-size: 4vw;
+				}
+			}
+
+
+			.image-wrap img {
+				max-width: 100%;
+			}
+			.alert.alert-dark.text-center{
+				margin-top: 17vh;
+				margin-bottom: 17vh;
+			}
+/* HEADER PARA VIEWPORTS GRANDES */
+	@media (min-width: 768px) {
+
+		header{
+			align-items: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			background-image: url('../imagenes/fondo.fw.png');
+		}
+
+/*  CUERPO DE LA PAGINA*/
+		secciones{
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+		}
+		articles {
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-start;
+			justify-content: space-around;
+			flex-basis: 40vw;
+			flex-grow: 1;
+		}
+
+
+
+		section.contacto{
+			font-size: 20px;
+			width: 800px;
+			height: 200px;
+			background-color: grey;
+			color: #FFF;
+			text-align: justify;
+			padding: 50px;
+			margin-right: 70px;
+			position: relative;
+
+			}
+
+		aside .noticia{
+			width: 300px;
+			flex-basis: 410px;
+		}
+
+		footer {
+			background: #000;
+			color: #fff;
+			clear:both;
+			padding: 20px, 0px;
+			text-align:center;
+
+		}
+
+		.noticia {
+		  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+		  color: #ffffff;
+		  font-family: 'Lato', Arial, sans-serif;
+		  font-size: 16px;
+		  overflow: hidden;
+		  position: relative;
+		  text-align: left;
+		  /* width: 100%; */
+		}
+
+		.noticia * {
+		  -webkit-box-sizing: border-box;
+		  box-sizing: border-box;
+		  -webkit-transition: all 0.25s ease;
+		  transition: all 0.25s ease;
+		}
+
+		.noticia img {
+		  width: 100%;
+		  vertical-align: top;
+		  position: relative;
+		}
+
+		.noticia encabezado {
+		  padding: 25px 20px 25px;
+			width: 100%;
+		  position: absolute;
+		  bottom: 0;
+		  z-index: 1;
+		}
+
+		.noticia encabezado:before {
+		  position: absolute;
+		  top: 0;
+		  bottom: 0;
+		  left: 0;
+		  right: 0;
+		  background: #000000;
+		  content: '';
+		  opacity: 0.8;
+		  z-index: -1;
+		}
+
+		.noticia h3,
+		.noticia p {
+		  margin: 0;
+		  padding: 0;
+		}
+
+		.noticia h3 {
+		  display: inline-block;
+		  font-weight: 700;
+		  letter-spacing: -0.4px;
+		  margin-bottom: 5px;
+		}
+
+		.noticia p {
+		  font-size: 0.8em;
+		  line-height: 1.6em;
+		  margin-bottom: 0px;
+		}
+
+		.noticia a {
+		  left: 0;
+		  right: 0;
+		  top: 0;
+		  bottom: 0;
+		  position: absolute;
+		  z-index: 1;
+		}
+
+		.noticia:hover img,
+		.noticia.hover img {
+		  -webkit-transform: scale(1.1);
+		  transform: scale(1.1);
+		}
+
+		.nota h3 {
+			font-size: 35px;
+		}
+
+		.post {
+			font-size: 21px;
+			max-width: 60vw;
+		}
+	}

@@ -1,0 +1,9 @@
+extends ./layout.pug  
+block contenido  
+  - for (var i= 0; i < mujer.length ; i++){
+      -  url = mujer[i].url
+      -  tit =  mujer[i].title
+      -  img =  mujer[i].image.url
+      a(href= url , target='_blank')
+        img(src= img, alt=tit, width='180px')
+  - } 

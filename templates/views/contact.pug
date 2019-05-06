@@ -1,0 +1,31 @@
+extends ./layout.pug
+block metadatos  
+	meta(property="og:image", content="/imagenes/logo.fw.png")
+	meta(property="og:url", content="causa-obrera.org")
+	meta(property="og:title", content="Partido de la Causa Obrera")
+	meta(property="og:description", content="Contacta con militantes del Partido de la Causa Obrera.")
+
+block contenido
+
+	.container.formulario-contacto
+		h1 Contacto
+		if enquirySubmitted
+			h3 Gracias por contactarte con nosotros. Nos comunicaremos a la brevedad.
+		else
+			.row: .col-sm-12
+				form(method='post')
+					input(type='hidden', name='action', value='contact')
+					.form-group(class=validationErrors.name ? 'has-error' : null)
+						label Nombre
+						input(type='text', name='name.full', value=formData['name.full']).form-control
+					.form-group(class=validationErrors.email ? 'has-error' : null)
+						label Email
+						input(type='email', name='email', value=formData.email).form-control
+					.form-group
+						label Telefono
+						input(type='text', name='phone', value=formData.phone, placeholder='(opcional)').form-control
+					.form-group(class=validationErrors.message ? 'has-error' : null)
+						label Mensaje
+						textarea(name='message', placeholder='Dejanos tu mensaje...' rows=4).form-control= formData.message
+					.form-actions
+						button(type='submit').btn.btn-primary Enviar
