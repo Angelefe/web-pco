@@ -1,0 +1,49 @@
+extends ./layout.pug  
+block metadatos
+	meta(property="og:image", content="http://causa-obrera.org/imagenes/logo.fw.png")
+	meta(property="og:url", content="causa-obrera.org")
+	meta(property="og:title", content="Partido de la Causa Obrera")
+	meta(property="og:description", content="Llamamos a los trabajadores conscientes, a la juventud y a las mujeres explotadas y oprimidas, a tomar junto con nosotros la gran tarea de construir un nuevo partido mundial de la revolución socialista.")
+block contenido
+	articles
+		- if(posts){
+			each post in posts
+				article
+					a(href= "nota/"+post.slug, style='text-decoration: none; color: black;')
+						.titulo-container
+							.titulo= post.title
+						.img
+							.blured(style='background-repeat: no-repeat; background-size:cover;background-position: center;background-image: url('+post.image.url+')')
+							img( src = post.image.url, alt='aceiteros')
+						.cuerpo!= post.content.brief
+		- } 
+	aside.d-none.d-lg-block
+		- if(ultimo_periodico && ultimo_internacional && ultimo_mujer){    
+			- ultimo_periodico_link = ultimo_periodico.url
+			- ultimo_periodico_img = ultimo_periodico.image.url
+			- ultimo_internacional_link = ultimo_internacional.url
+			- ultimo_internacional_img = ultimo_internacional.image.url
+			- ultimo_mujer_link = ultimo_mujer.url
+			- ultimo_mujer_img = ultimo_mujer.image.url
+			figure.noticia
+				a(href="/periodico", target='_blank')
+				.image 
+					img(src=ultimo_periodico_img, alt='LCO')
+				encabezado
+					h3 Ultimo Periodico
+					h4 La causa obrera
+			figure.noticia
+				a(href=ultimo_internacional_link, target='_blank')   
+				.image
+					img(src=ultimo_internacional_img, alt='manifiesto internacional')
+				encabezado
+					h3 Revista Internacional
+			figure.noticia
+				a(href=ultimo_mujer_link, target='_blank')   
+				.image
+					img(src=ultimo_mujer_img, alt='manifiesto internacional')
+				encabezado
+					h3 Boletin especial
+					h4 La Mujer Trabajadora
+		- } 
+

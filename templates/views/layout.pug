@@ -1,0 +1,73 @@
+html(lang="es")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible", content="ie=edge")
+		title Partido de la Causa Obrera
+		//-estilos css
+		link(rel="stylesheet", href="/styles/estilos2.css")
+		link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', integrity='sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB', crossorigin='anonymous')
+		link(rel="shortcut icon", href="/imagenes/logo.fw.png")
+			//-jquery
+		script(src='https://code.jquery.com/jquery-3.3.1.min.js')
+		
+		//-font awesome
+		link(rel="stylesheet",
+		| href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
+		block metadatos
+
+	body
+		header
+			img(src='/imagenes/titulo.fw.png', alt='LCO').img-titulo
+			nav.navbar.navbar-expand-sm.navbar-transparent.bg-transparent
+				button.navbar-toggler.navbar-dark(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+					i.fa.fa-navicon
+				#navbarSupportedContent.collapse.navbar-collapse
+					ul.navbar-nav.mr-auto-lg.navbar-dark
+						li.nav-item.active.white
+							a.nav-link(href='/')
+								| Inicio 
+								span.sr-only (current)
+						li.nav-item.active.dropdown
+							a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+								| ¿Quiénes somos?
+							.dropdown-menu(aria-labelledby='navbarDropdown')
+								a.dropdown-item(href='/quienes') Partido de la Causa Obrera
+								a.dropdown-item(href='/enlace') Enlace Internacional
+						li.nav-item.active.dropdown
+							a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+								| Prensa
+							.dropdown-menu(aria-labelledby='navbarDropdown')
+								a.dropdown-item(href='/notas') Notas
+								a.dropdown-item(href='/periodicos') Periodicos
+								a.dropdown-item(href='/internacional') Internacional
+								a.dropdown-item(href='/mujer') Boletines Mujer
+						li.nav-item
+							a.nav-link.active(href='/contacto') Contacto
+			img(src='/imagenes/logo.fw.png', alt='LCO').d-none.d-lg-block
+		main
+			block contenido
+		footer
+			h4 PARTIDO DE LA CAUSA OBRERA
+			.contacto-footer-contenedor  
+				.box  
+					h5 Facebook
+					a(href="https://www.facebook.com/juventud.d.pco/" target="blank")
+						i.fa.fa-facebook-square
+					.mail https://www.facebook.com/juventud.d.pco/  
+				.box
+					h5 Email
+					a(href="/contacto" target="blank")
+						i.fa.fa-envelope-square    
+					.mail PartidodelaCausaObrera@hotmail.com.ar
+
+		
+		//-codigos js
+		script(src='/js/menu.js')
+		script(src='/js/info-sesion.js')
+		script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49', crossorigin='anonymous')
+		script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', integrity='sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T', crossorigin='anonymous')
+
+							
+								

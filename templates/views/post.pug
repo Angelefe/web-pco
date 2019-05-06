@@ -1,0 +1,26 @@
+extends ./layout.pug
+block metadatos
+	- img = post.image.url
+	- var tag = /(<([^>]+)>)/ig
+	meta(property="og:image", content=img)
+	meta(property="og:url", content="causa-obrera.org")
+	meta(property="og:title", content=post.title)
+	meta(property="og:description", content!=post.content.brief.replace(tag, ""))
+	meta(property="og:type", content="article")
+
+block contenido
+
+
+	.nota
+		p: a(href='/') &larr; Atrás
+		if !post
+			h2 La nota no existe
+		else
+			h3.text-center= post.title
+			p Publicado 
+				if post.publishedDate
+					| el #{post._.publishedDate.format('DD/MM/YYYY')}
+			.img.center
+				img( src = img, alt='aceiteros')
+			hr
+		.post!= post.content.full

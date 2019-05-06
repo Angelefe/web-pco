@@ -1,0 +1,14 @@
+extends ./layout.pug  
+block metadatos
+	meta(property="og:image", content="/imagenes/logo.fw.png")
+	meta(property="og:url", content="causa-obrera.org")
+	meta(property="og:title", content="Partido de la Causa Obrera")
+	meta(property="og:description", content="Llamamos a los trabajadores conscientes, a la juventud y a las mujeres explotadas y oprimidas, a tomar junto con nosotros la gran tarea de construir un nuevo partido mundial de la revolución socialista.")
+block contenido
+	articles
+		each periodico in periodicos
+			- console.log(periodico.archivo)
+			- url = periodico.archivo.filename ? ("../uploads/" + periodico.archivo.filename) :  periodico.url
+			a(href= url , target='_blank')       
+				.contenedor-periodico 
+					img(src= periodico.image.url, alt=periodico.title, width='180px')
