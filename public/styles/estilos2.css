@@ -235,7 +235,7 @@ a.dropdown-item:hover{
 			font-weight: bold;
 		}
 		.nota .img img{
-			width: 100vw;
+			width: 100%;
 		}
 		.post{
 			font-weight: 400;
