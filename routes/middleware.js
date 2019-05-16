@@ -55,21 +55,24 @@ exports.requireUser = function (req, res, next) {
 };
 
 exports.guardarSesion = async function (req, res, next) {
-	const item = await Sesion.model.findOne()
-		.where('sesionId', req.sessionID)
-	if (item) {
-		const updateAcciones = item.acciones.push(req.url)
-		Sesion.updateItem(item, {acciones: updateAcciones },err=> console.log(err? err : "extito update"))	
+	try {
+		const item = await Sesion.model.findOne()
+			.where('sesionId', req.sessionID);
+		if (item) {
+			item.acciones = item.acciones.concat([req.url]);
+			item.save(err => console.log(err));
+		}
+		else {
+			const nuevaSesion = new Sesion.model({
+				sesionId: req.sessionID,
+				navegador: req.headers['user-agent'],
+				acciones: [req.url],
+			});
+			nuevaSesion.save(err => console.log(err));
+		}
+		console.log(item);
+	} catch (error) {
+		console.log(error);
 	}
-	else{
-		const nuevaSesion = new Sesion.model({
-			sesionId: req.sessionID,
-			navegador: req.headers['user-agent'],
-			acciones: [req.url],
-		});
-		nuevaSesion.save(err => console.log(err ? err : 'exito'));
-	}
-//	console.log(req.headers['user-agent'], req.sessionID, req.url);
-	console.log(item);
 	next();
 };
