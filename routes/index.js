@@ -21,9 +21,10 @@
 var keystone = require('keystone');
 var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
-var Post = keystone.list('Post');
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
+keystone.pre('routes', middleware.guardarSesion);
+
 keystone.pre('render', middleware.flashMessages);
 
 // Import Route Controllers

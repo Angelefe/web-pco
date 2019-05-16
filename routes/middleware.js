@@ -7,8 +7,9 @@
  * you have more middleware you may want to group it as separate
  * modules in your project's /lib directory.
  */
+var keystone = require('keystone');
 var _ = require('lodash');
-
+var Sesion = keystone.list('Sesion');
 
 /**
 	Initialises the standard view locals
@@ -51,4 +52,27 @@ exports.requireUser = function (req, res, next) {
 	} else {
 		next();
 	}
+};
+
+exports.guardarSesion = async function (req, res, next) {
+	try {
+		const item = await Sesion.model.findOne()
+			.where('sesionId', req.sessionID);
+		if (item) {
+			item.acciones = item.acciones.concat([req.url]);
+			item.save(err => console.log(err));
+		}
+		else {
+			const nuevaSesion = new Sesion.model({
+				sesionId: req.sessionID,
+				navegador: req.headers['user-agent'],
+				acciones: [req.url],
+			});
+			nuevaSesion.save(err => console.log(err));
+		}
+		console.log(item);
+	} catch (error) {
+		console.log(error);
+	}
+	next();
 };
