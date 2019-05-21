@@ -12,8 +12,17 @@ var Sesion = new keystone.List('Sesion', {
 });
 
 Sesion.add({
-	sesionId: { type: String, required: true },
+	sesionId: { type: String, required: true, unique: true },
 	navegador: { type: String },
-	acciones: { type: Types.TextArray },
+	acciones: {
+		type: Types.Relationship,
+		ref: 'Accion',
+		many: true,
+	},
+	localizaciones: {
+		type: Types.Relationship,
+		ref: 'Localizacion',
+		many: true,
+	},
 });
 Sesion.register();

@@ -9,7 +9,6 @@ exports = module.exports = function (req, res) {
 	Mujer.model.find()
     .sort('-publishedAt')
     .exec(function(err, mujer) {
-			console.log(mujer);
 			view.render('mujer',{mujer: mujer});
     });
 };

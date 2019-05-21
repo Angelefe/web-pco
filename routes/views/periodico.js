@@ -9,12 +9,10 @@ exports = module.exports = function (req, res) {
 			.sort({
 				publishedDate: 'desc',
 			});
-		console.log(ultimo_periodico.numero);
 		let posts = await Post.model.find()
 			.where('state', 'published')
 			.where('numero', ultimo_periodico.numero)
 			.sort('orden');
-		console.log('posts:' + posts + '?');
 		view.render('periodico', {
 			posts: posts,
 			periodico: ultimo_periodico,

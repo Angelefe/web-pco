@@ -26,7 +26,6 @@ exports = module.exports = function (req, res) {
 			.sort('-publishedAt')
 			.limit(6)
 			.exec();
-		console.log(post._);
 		view.render('post', {
 			post: post,
 			otros: otros,
