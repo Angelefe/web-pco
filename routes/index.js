@@ -32,6 +32,9 @@ var routes = {
 	views: importRoutes('./views'),
 };
 
+const posts = {
+	post: importRoutes('./post'),
+}
 // Setup Route Bindings
 exports = module.exports = function (app) {
 	// Views
@@ -48,6 +51,7 @@ exports = module.exports = function (app) {
 	app.get('/quienes', routes.views.quienes);
 	app.all('/contacto', routes.views.contact);
 	app.get('/enlace', routes.views.enlace);
+	app.post('/guardarLocalizacion', posts.post.guardarLocalizacion);
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 };

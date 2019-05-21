@@ -7,7 +7,6 @@ block metadatos
 block contenido
 	articles
 		each periodico in periodicos
-			- console.log(periodico.archivo)
 			- url = periodico.archivo.filename ? ("../uploads/" + periodico.archivo.filename) :  periodico.url
 			a(href= url , target='_blank')       
 				.contenedor-periodico 

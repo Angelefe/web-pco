@@ -1,13 +1,12 @@
-var keystone = require('keystone');
-var Post = keystone.list('Post');
-var Periodico = keystone.list('Periodico');
-var Internacional = keystone.list('Internacional');
-var Mujer = keystone.list('Mujer');
+const keystone = require('keystone');
+const Post = keystone.list('Post');
+const Periodico = keystone.list('Periodico');
+const Internacional = keystone.list('Internacional');
+const Mujer = keystone.list('Mujer');
 
 
 exports = module.exports = function (req, res) {
-	var view = new keystone.View(req, res);
-
+	const view = new keystone.View(req, res);
 	(async () => {
 		let posts = await Post.model.find()
 			.where('state', 'published')

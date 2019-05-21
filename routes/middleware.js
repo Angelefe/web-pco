@@ -7,9 +7,11 @@
  * you have more middleware you may want to group it as separate
  * modules in your project's /lib directory.
  */
-var keystone = require('keystone');
-var _ = require('lodash');
-var Sesion = keystone.list('Sesion');
+const keystone = require('keystone');
+const _ = require('lodash');
+const Sesion = keystone.list('Sesion');
+const Accion = keystone.list('Accion');
+
 
 /**
 	Initialises the standard view locals
@@ -55,24 +57,33 @@ exports.requireUser = function (req, res, next) {
 };
 
 exports.guardarSesion = async function (req, res, next) {
+	if (req.method === "POST" && req.url === "/guardarLocalizacion") return next();
 	try {
-		const item = await Sesion.model.findOne()
+		const nuevaAccion = new Accion.model({
+			tipo: req.url,
+			time: Date.now(),
+		});
+		await nuevaAccion.save(err => {
+			if (err) console.log("err en nacc",err)
+		});
+		let item = await Sesion.model.findOne()
 			.where('sesionId', req.sessionID);
 		if (item) {
-			item.acciones = item.acciones.concat([req.url]);
-			item.save(err => console.log(err));
+			item.acciones = item.acciones.concat([nuevaAccion._id]);
+			await item.save(err => {
+				if (err) console.log("eer2", err)
+			});
 		}
 		else {
 			const nuevaSesion = new Sesion.model({
 				sesionId: req.sessionID,
 				navegador: req.headers['user-agent'],
-				acciones: [req.url],
+				acciones: nuevaAccion._id,
 			});
-			nuevaSesion.save(err => console.log(err));
+			await nuevaSesion.save(err => {if(err) console.log("eer3",err)} );
 		}
-		console.log(item);
 	} catch (error) {
-		console.log(error);
+		null;
 	}
 	next();
 };
