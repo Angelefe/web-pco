@@ -16,6 +16,7 @@ block contenido
 							.blured(style='background-repeat: no-repeat; background-size:cover;background-position: center;background-image: url('+post.image.url+')')
 							img( src = post.image.url, alt='aceiteros')
 						.cuerpo!= post.content.brief
+			a.dropdown-item.text-center(href='/notas') Mas notas...
 		- } 
 	aside.d-none.d-lg-block
 		- if(ultimo_periodico && ultimo_internacional && ultimo_mujer){    
@@ -45,4 +46,11 @@ block contenido
 				encabezado
 					h3 Boletin especial
 					h4 La Mujer Trabajadora
+			figure.noticia
+				a(href="https://eltopoobrero.wordpress.com/", target='_blank')   
+				.image
+					img(src="/imagenes/topo.jpg", alt='manifiesto internacional')
+				encabezado
+					h3 Enlace internacional
+					h4 El Topo Obrero
 		- }

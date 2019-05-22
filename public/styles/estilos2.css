@@ -11,6 +11,10 @@ body{
 	flex-direction: column;
 	justify-content: space-between;
 	color: #000;
+	background-image: url('https://pre00.deviantart.net/c0d7/th/pre/i/2012/077/6/8/dark_red_01_texture_by_carlbert-d4t6oem.jpg');
+	background-repeat: no-repeat;
+	background-size:cover;
+	background-position: center;
 }
 /*
 	El header es flex organizado en filas,
@@ -33,10 +37,6 @@ header{
 	align-items: center;
 	align-items: stretch;
 	width: 100%;
-	background-repeat: no-repeat;
-	background-size:cover;
-	background-position: center;
-	background-image: url('../imagenes/fondo.fw.png');
 
 }
 
@@ -46,17 +46,53 @@ header{
 	margin-top: 1vw;
 	margin-bottom: 1vw;
 }
+
+.nav-side {
+	position: -webkit-sticky;
+	/* Safari */
+	position: sticky;
+	top: 0;
+	height: 100vh;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+
+}
 @media (max-width:575px) {
 	.img-titulo{
 		height: 10vw;
 		margin-top: 0.5vw;
 		margin-bottom: 0.5vw;
 	}
+	.nav-side{
+		min-width: 100vw;
+		  position: -webkit-sticky;
+		  /* Safari */
+		  position: sticky;
+		  top: 0;
+		  background-color: rgba(0, 0, 0, 0.945);
+		  flex-direction: column;
+		height: 5vh;
+	}
+	main{
+		flex-wrap: wrap !important;
+		position: relative;
+	}
 }
 nav{
 	padding: 0 !important;
 	font-weight: bolder;
 }
+.logo-marca-link{
+	padding: 0 !important;
+}
+
+.logo-marca-link-redondeado {
+	border-radius: 50% !important;
+	padding: 5px !important;
+}
+
 
 button.navbar-toggler{
 	font-size: 7vw;
@@ -89,13 +125,8 @@ a.dropdown-item:hover{
 			flex-wrap: nowrap;
 			flex-direction: row;
 			justify-content: space-around;
-			background-color: darkgrey;
 			padding: 2vw;
 			min-height: 70vh;
-			background-repeat: no-repeat;
-			background-size:cover;
-			background-position: center;
-			background-image: url('https://pre00.deviantart.net/c0d7/th/pre/i/2012/077/6/8/dark_red_01_texture_by_carlbert-d4t6oem.jpg');
 		}
 
 		 articles {
@@ -118,9 +149,11 @@ a.dropdown-item:hover{
 			max-height: 400px;
 			overflow: hidden;
 			position: relative;
-			background-color: rgba(169, 169, 169, 0.863);
+			background-color: rgba(169, 169, 169, 0.089);
 			border-radius: 10px;
 			margin: 10px;
+			color: white !important;
+			font-weight: bold;
 		}
 		article .img{
 			width: 100%;
@@ -181,7 +214,7 @@ a.dropdown-item:hover{
 
 		article .titulo{
 			z-index: 2;
-			background-color: rgba(73, 73, 73, 0.85);
+			background-color: rgba(0, 0, 0, 0.85);
 			width: 25vw;
 			min-width: 225px;
 			padding: 20px;
@@ -200,6 +233,7 @@ a.dropdown-item:hover{
 			padding:  50px 20px 0px 20px;
 			font-size: 15px;
 			z-index: 0;
+			color: white;
 		}
 
 		article *{
@@ -266,7 +300,10 @@ a.dropdown-item:hover{
 		}
 
 			footer {
-				background: #000;
+				background-image: url('../imagenes/fondo.fw.png');
+				background-repeat: no-repeat;
+				background-size:cover;
+				background-position: center;
 				color: #fff;
 				clear:both;
 				padding: 20px;
@@ -274,6 +311,14 @@ a.dropdown-item:hover{
 				display: flex;
 				flex-direction: column;
 				flex-wrap: wrap;
+				width: 96vw;
+				align-self: center;
+				margin-bottom: 2vw !important;
+				border-radius: 20px;
+			}
+
+			footer h4 {
+				font-weight: 900;
 			}
 			i.fa.fa-facebook-square, i.fa.fa-envelope-square {
 				font-size: 100px;
@@ -313,10 +358,6 @@ a.dropdown-item:hover{
 
 		header{
 			align-items: center;
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-position: center;
-			background-image: url('../imagenes/fondo.fw.png');
 		}
 
 /*  CUERPO DE LA PAGINA*/
@@ -359,12 +400,21 @@ a.dropdown-item:hover{
 		}
 
 		footer {
-			background: #000;
+			background-image: url('../imagenes/fondo.fw.png');
+			background-repeat: no-repeat;
+			background-size:cover;
+			background-position: center;
 			color: #fff;
 			clear:both;
 			padding: 20px, 0px;
 			text-align:center;
-
+			width: 96vw;
+			align-self: center;
+			margin-bottom: 2vw !important;
+			border-radius: 20px;
+		}
+		footer h4{
+			font-weight: 900;
 		}
 
 		.noticia {
@@ -407,7 +457,7 @@ a.dropdown-item:hover{
 		  right: 0;
 		  background: #000000;
 		  content: '';
-		  opacity: 0.8;
+		  opacity: 0.95;
 		  z-index: -1;
 		}
 
