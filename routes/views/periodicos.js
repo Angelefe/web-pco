@@ -7,7 +7,7 @@ exports = module.exports = function (req, res) {
 	// item in the header navigation.
 	locals.section = 'home';
 	Periodico.model.find()
-		.sort('-publishedAt')
+		.sort('-publishedDate')
 		.exec(function (_err, periodicos) {
 			view.render('periodicos', { periodicos: periodicos });
 		});

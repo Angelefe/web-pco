@@ -124,9 +124,10 @@ a.dropdown-item:hover{
 			display: flex !important;
 			flex-wrap: nowrap;
 			flex-direction: row;
-			justify-content: space-around;
+			justify-content: center;
 			padding: 2vw;
 			min-height: 70vh;
+
 		}
 
 		 articles {
@@ -149,10 +150,9 @@ a.dropdown-item:hover{
 			max-height: 400px;
 			overflow: hidden;
 			position: relative;
-			background-color: rgba(169, 169, 169, 0.089);
+			background-color: rgba(255, 255, 255, 0.39);
 			border-radius: 10px;
 			margin: 10px;
-			color: white !important;
 			font-weight: bold;
 		}
 		article .img{
@@ -233,7 +233,7 @@ a.dropdown-item:hover{
 			padding:  50px 20px 0px 20px;
 			font-size: 15px;
 			z-index: 0;
-			color: white;
+			color: black;
 		}
 
 		article *{
