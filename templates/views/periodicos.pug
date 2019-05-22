@@ -8,6 +8,5 @@ block contenido
 	articles
 		each periodico in periodicos
 			- url = periodico.archivo.filename ? ("../uploads/" + periodico.archivo.filename) :  periodico.url
-			a(href= url , target='_blank')       
-				.contenedor-periodico 
-					img(src= periodico.image.url, alt=periodico.title, width='180px')
+			a.contenedor-periodico(href= url , target='_blank')       
+				img(src= periodico.image.url, alt=periodico.title, width='180px')
