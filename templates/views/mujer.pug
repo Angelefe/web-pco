@@ -1,9 +1,9 @@
 extends ./layout.pug  
 block contenido  
-  - for (var i= 0; i < mujer.length ; i++){
-      -  url = mujer[i].url
-      -  tit =  mujer[i].title
-      -  img =  mujer[i].image.url
-      a(href= url , target='_blank')
-        img(src= img, alt=tit, width='180px')
-  - } 
+	articles
+		each item in mujer
+			-  url = item.url
+			-  tit =  item.title
+			-  img =  item.image.url
+			a.contenedor-periodico(href= url , target='_blank')
+				img(src= img, alt=tit, width='180px')
