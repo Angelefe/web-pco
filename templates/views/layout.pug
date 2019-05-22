@@ -18,7 +18,8 @@ html(lang="es")
 
 	body
 		header
-			img(src='/imagenes/titulo.fw.png', alt='LCO').img-titulo
+			a.logo-marca-link.nav-link(href='/')
+				img(src='/imagenes/titulo.fw.png', alt='LCO').img-titulo
 			nav.navbar.navbar-expand-sm.navbar-transparent.bg-transparent
 				button.navbar-toggler.navbar-dark(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
 					i.fa.fa-navicon
@@ -44,11 +45,12 @@ html(lang="es")
 								a.dropdown-item(href='/mujer') Boletines Mujer
 						li.nav-item
 							a.nav-link.active(href='/contacto') Contacto
-			img(src='/imagenes/logo.fw.png', alt='LCO').d-none.d-lg-block
+			a.logo-marca-link-redondeado.nav-link(href='/')
+				img(src='/imagenes/logo.fw.png', alt='LCO').d-none.d-lg-block
 		main
 			block contenido
 		footer
-			h4 PARTIDO DE LA CAUSA OBRERA
+			h4 SUMATE AL PARTIDO DE LA CAUSA OBRERA
 			.contacto-footer-contenedor  
 				.box  
 					h5 Facebook

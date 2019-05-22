@@ -11,7 +11,7 @@ exports = module.exports = function (req, res) {
 		let posts = await Post.model.find()
 			.where('state', 'published')
 			.sort('-publishedDate')
-			.limit(6);
+			.limit(8);
 		let ultimo_periodico = await Periodico.model.findOne()
 			.sort({
 				publishedDate: 'desc',
