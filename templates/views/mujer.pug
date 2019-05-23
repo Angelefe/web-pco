@@ -4,6 +4,6 @@ block contenido
 		each item in mujer
 			-  url = item.url
 			-  tit =  item.title
-			-  img =  item.image.url
+			-  img =  item.image.secure_url
 			a.contenedor-periodico(href= url , target='_blank')
 				img(src= img, alt=tit, width='180px')

@@ -7,4 +7,4 @@ block metadatos
 block contenido
 	each item in internacional
 		a(href= item.url , target='_blank')
-			img(src= item.image.url, alt=item.title, width='180px')
+			img(src= item.image.secure_url, alt=item.title, width='180px')
