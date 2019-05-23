@@ -1,6 +1,6 @@
 extends ./layout.pug
 block metadatos
-	- img = post.image.url
+	- img = post.image.secure_url
 	- var tag = /(<([^>]+)>)/ig
 	meta(property="og:image", content=img)
 	meta(property="og:url", content="causa-obrera.org")

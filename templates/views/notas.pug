@@ -4,7 +4,7 @@ block contenido
   articles  
     - for (var i = 0; i < posts.length; i++) {
       - slug = posts[i].slug
-      - url = posts[i].image.url 
+      - url = posts[i].image.secure_url 
       article
         a(href= '/nota/'+slug, style='text-decoration: none; color: black;')
           .titulo-container           

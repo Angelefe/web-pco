@@ -1,7 +1,7 @@
 extends ./layout.pug  
 block contenido  
   .nota
-    - var url = post.image.url 
+    - var url = post.image.secure_url 
     .img
       img( src = url, alt='aceiteros')
     .titulo #{post.title}

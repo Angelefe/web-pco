@@ -13,19 +13,19 @@ block contenido
 						.titulo-container
 							.titulo= post.title
 						.img
-							.blured(style='background-repeat: no-repeat; background-size:cover;background-position: center;background-image: url('+post.image.url+')')
-							img( src = post.image.url, alt='aceiteros')
+							.blured(style='background-repeat: no-repeat; background-size:cover;background-position: center;background-image: url('+post.image.secure_url+')')
+							img( src = post.image.secure_url, alt='aceiteros')
 						.cuerpo!= post.content.brief
 			a.dropdown-item.text-center(href='/notas') Mas notas...
 		- } 
 	aside.d-none.d-lg-block
 		- if(ultimo_periodico && ultimo_internacional && ultimo_mujer){    
 			- ultimo_periodico_link = ultimo_periodico.url
-			- ultimo_periodico_img = ultimo_periodico.image.url
+			- ultimo_periodico_img = ultimo_periodico.image.secure_url
 			- ultimo_internacional_link = ultimo_internacional.url
-			- ultimo_internacional_img = ultimo_internacional.image.url
+			- ultimo_internacional_img = ultimo_internacional.image.secure_url
 			- ultimo_mujer_link = ultimo_mujer.url
-			- ultimo_mujer_img = ultimo_mujer.image.url
+			- ultimo_mujer_img = ultimo_mujer.image.secure_url
 			figure.noticia
 				a(href="/periodico", target='_blank')
 				.image 
