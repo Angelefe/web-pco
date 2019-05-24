@@ -1,9 +1,10 @@
 extends ./layout.pug  
-block contenido  
-	articles
-		each item in mujer
-			-  url = item.url
-			-  tit =  item.title
-			-  img =  item.image.secure_url
-			a.contenedor-periodico(href= url , target='_blank')
-				img(src= img, alt=tit, width='180px')
+block contenido
+	main
+		articles
+			each item in mujer
+				-  url = item.url
+				-  tit =  item.title
+				-  img =  item.image.secure_url
+				a.contenedor-periodico(href= url , target='_blank')
+					img(src= img, alt=tit, width='180px')

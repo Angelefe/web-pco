@@ -129,8 +129,11 @@ a.dropdown-item:hover{
 			min-height: 70vh;
 
 		}
+		main.blanco{
+			background-color: #fff;
+		}
 
-		 articles {
+		articles {
 			display: flex;
 			flex-wrap: wrap;
 			align-items: flex-start;
@@ -206,8 +209,27 @@ a.dropdown-item:hover{
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			flex-direction: column;
 		}
-
+		.tag-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+		.tag{
+			font-size: 0.8em;
+			margin: 0.2em;
+			padding: 0.3em;
+			border-radius: 20px;
+			background-color: rgba(0, 0, 0, 0.85);
+			color: #fff !important;
+			z-index: 2;
+			text-decoration: none !important;
+		}
+		.tag:hover {
+			background-color: rgba(246, 0, 0, 0.35);
+		}
 		.contenedor-periodico{
 			margin: 5%;
 		}
@@ -219,34 +241,38 @@ a.dropdown-item:hover{
 			min-width: 225px;
 			padding: 20px;
 			border-radius: 20px;
-			color: #fff;
+			color: #fff !important;
 			font-weight: 700;
-			font-size: 17px;
+			font-size: 0.9em;
 			display: -webkit-flex;
 			display: -ms-flex;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			text-align: center;
+			text-transform: uppercase;
 		}
 		article .cuerpo{
-			padding:  50px 20px 0px 20px;
-			font-size: 15px;
+			padding:  200px 20px 0px 20px;
+			font-size: 1em;
 			z-index: 0;
 			color: black;
+			text-align: left;
 		}
+
 
 		article *{
 			transition: all 0.25s ease;
 		}
 		article:hover .img{
-			transform:translateY(-100px) scale(1.3);
+			transform:translateY(-200px);
 		}
 		article:hover .titulo-container{
 			top:0px;
 		}
 		article:hover .cuerpo{
-			transform: translateY(-80px);
+			transform: translateY(-180px);
+
 		}
 		article:active{
 			transform: scale(300%);
@@ -398,7 +424,9 @@ a.dropdown-item:hover{
 			width: 300px;
 			flex-basis: 410px;
 		}
-
+		.nav-side a{
+			color:black !important;
+		}
 		footer {
 			background-image: url('../imagenes/fondo.fw.png');
 			background-repeat: no-repeat;

@@ -39,7 +39,6 @@ const posts = {
 exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.index);
-	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
 	app.get('/gallery', middleware.requireUser, routes.views.gallery);
 	app.get('/nota/:post', routes.views.post);
@@ -47,6 +46,7 @@ exports = module.exports = function (app) {
 	app.get('/periodico', routes.views.periodico);
 	app.get('/internacional', routes.views.internacional);
 	app.get('/mujer', routes.views.mujer);
+	app.get('/notas/:category?', routes.views.notas);
 	app.get('/notas', routes.views.notas);
 	app.get('/quienes', routes.views.quienes);
 	app.all('/contacto', routes.views.contact);

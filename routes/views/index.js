@@ -10,8 +10,9 @@ exports = module.exports = function (req, res) {
 	(async () => {
 		let posts = await Post.model.find()
 			.where('state', 'published')
+			.limit(8)
 			.sort('-publishedDate')
-			.limit(8);
+			.populate('categories');
 		let ultimo_periodico = await Periodico.model.findOne()
 			.sort({
 				publishedDate: 'desc',

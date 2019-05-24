@@ -1,47 +1,48 @@
 extends ./layout.pug  
 block contenido
-	p Periódico  n° #{periodico.title}
-		br
-		- url = periodico.archivo.filename ? ("../uploads/" + periodico.archivo.filename) :  periodico.url
-		a(href= url target='_blank') Descargar
-	articles
-		each post in posts
-			article
-				a(href= '/nota/'+post.slug, style='text-decoration: none; color: black;')
-					.titulo-container
-						.titulo= post.title
-					.img
-						.blured(style='background-repeat: no-repeat; background-size:cover;background-position: center;background-image: url('+post.image.secure_url+')')
-						img( src = post.image.secure_url, alt='aceiteros')
-					.cuerpo!= post.content.brief
-		else
-			div No hay notas subidas todavia.
-	aside.d-none.d-lg-block
-		- if(ultimo_periodico && ultimo_internacional && ultimo_mujer){    
-			- ultimo_periodico_link = ultimo_periodico.url
-			- ultimo_periodico_img = ultimo_periodico.image.secure_url
-			- ultimo_internacional_link = ultimo_internacional.url
-			- ultimo_internacional_img = ultimo_internacional.image.secure_url
-			- ultimo_mujer_link = ultimo_mujer.url
-			- ultimo_mujer_img = ultimo_mujer.image.secure_url
-			figure.noticia
-				a(href="/periodico", target='_blank')
-				.image 
-					img(src=ultimo_periodico_img, alt='LCO')
-				encabezado
-					h3 Ultimo Periodico
-					h4 La causa obrera
-			figure.noticia
-				a(href=ultimo_internacional_link, target='_blank')   
-				.image
-					img(src=ultimo_internacional_img, alt='manifiesto internacional')
-				encabezado
-					h3 Revista Internacional
-			figure.noticia
-				a(href=ultimo_mujer_link, target='_blank')   
-				.image
-					img(src=ultimo_mujer_img, alt='manifiesto internacional')
-				encabezado
-					h3 Boletin especial
-					h4 La Mujer Trabajadora
-		- } 
+	main
+		p Periódico  n° #{periodico.title}
+			br
+			- url = periodico.archivo.filename ? ("../uploads/" + periodico.archivo.filename) :  periodico.url
+			a(href= url target='_blank') Descargar
+		articles
+			each post in posts
+				article
+					a(href= '/nota/'+post.slug, style='text-decoration: none; color: black;')
+						.titulo-container
+							.titulo= post.title
+						.img
+							.blured(style='background-repeat: no-repeat; background-size:cover;background-position: center;background-image: url('+post.image.secure_url+')')
+							img( src = post.image.secure_url, alt='aceiteros')
+						.cuerpo!= post.content.brief
+			else
+				div No hay notas subidas todavia.
+		aside.d-none.d-lg-block
+			- if(ultimo_periodico && ultimo_internacional && ultimo_mujer){    
+				- ultimo_periodico_link = ultimo_periodico.url
+				- ultimo_periodico_img = ultimo_periodico.image.secure_url
+				- ultimo_internacional_link = ultimo_internacional.url
+				- ultimo_internacional_img = ultimo_internacional.image.secure_url
+				- ultimo_mujer_link = ultimo_mujer.url
+				- ultimo_mujer_img = ultimo_mujer.image.secure_url
+				figure.noticia
+					a(href="/periodico", target='_blank')
+					.image 
+						img(src=ultimo_periodico_img, alt='LCO')
+					encabezado
+						h3 Ultimo Periodico
+						h4 La causa obrera
+				figure.noticia
+					a(href=ultimo_internacional_link, target='_blank')   
+					.image
+						img(src=ultimo_internacional_img, alt='manifiesto internacional')
+					encabezado
+						h3 Revista Internacional
+				figure.noticia
+					a(href=ultimo_mujer_link, target='_blank')   
+					.image
+						img(src=ultimo_mujer_img, alt='manifiesto internacional')
+					encabezado
+						h3 Boletin especial
+						h4 La Mujer Trabajadora
+			- } 
