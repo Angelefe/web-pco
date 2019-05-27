@@ -7,14 +7,14 @@ block contenido
 				each post in locals.data.posts.results
 					article
 						.titulo-container
-							a(href= "nota/"+post.slug, style='text-decoration: none; color: black;').titulo= post.title
+							a(href= "/nota/"+post.slug, style='text-decoration: none; color: black;').titulo= post.title
 						.tag-container
 							each categoria in post.categories
 								a.nav-link.tag(href='/notas/'+categoria.key)= categoria.name
 						.img
 							.blured.img-relleno(style='background-image: url('+post.image.secure_url+')')
 							img( src = post.image.secure_url, alt='aceiteros')
-						a(href= "nota/"+post.slug, style='text-decoration: none; color: black;')
+						a(href= "/nota/"+post.slug, style='text-decoration: none; color: black;')
 							.cuerpo!= post.content.brief
 				- if(locals.data.posts.next){
 					-	urlNext = "?page="+locals.data.posts.next
