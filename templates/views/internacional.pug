@@ -5,6 +5,7 @@ block metadatos
 	meta(property="og:title", content="Partido de la Causa Obrera")
 	meta(property="og:description", content="Llamamos a los trabajadores conscientes, a la juventud y a las mujeres explotadas y oprimidas, a tomar junto con nosotros la gran tarea de construir un nuevo partido mundial de la revolución socialista.")
 block contenido
-	each item in internacional
-		a(href= item.url , target='_blank')
-			img(src= item.image.secure_url, alt=item.title, width='180px')
+	main
+		each item in internacional
+			a(href= item.url , target='_blank')
+				img(src= item.image.secure_url, alt=item.title, width='180px')
