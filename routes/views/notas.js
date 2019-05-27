@@ -43,6 +43,7 @@ exports = module.exports = function (req, res) {
 
 	// Load the current category filter
 	view.on('init', function (next) {
+		console.log(locals.data.categories);
 		if (req.params.category) {
 			keystone.list('PostCategory').model.findOne({
 				key: locals.filters.category,
@@ -57,27 +58,31 @@ exports = module.exports = function (req, res) {
 
 	// Load the posts
 	view.on('init', function (next) {
-
-		var q = keystone.list('Post').paginate({
-				page: req.query.page || 1,
-				perPage: 10,
-				maxPages: 10,
-				filters: {
-					state: 'published',
-				},
-			})
-			.sort('-publishedDate')
-			.populate('author categories');
-
+		var q;
 		if (locals.data.category) {
-			console.log(locals.data.category)
-			q.where('categories').in([locals.data.category]);
+			q = keystone.list('Post').model
+				.find()
+				.where('state', 'published')
+				.where('categories').in([locals.data.category])
+				.skip(10 * (req.query.page || 0))
+				.limit(11)
+				.sort('-publishedDate')
+				.populate('author categories');
 		}
-
+		else {
+			q = keystone.list('Post').model
+				.find()
+				.where('state', 'published')
+				.skip(10 * (req.query.page || 0))
+				.limit(11)
+				.sort('-publishedDate')
+				.populate('author categories');
+		}
 		q.exec(function (err, results) {
-			locals.data.posts = results;
-			console.log(results);
-			
+			console.log("vfavdsfv------> ",results.length)
+			locals.data.posts.results = results.slice(0,10);
+			locals.data.posts.next = results.length === 11 ? ++req.query.page || 1 : false;
+			console.log(locals.data.posts);
 			next(err);
 		});
 	});
