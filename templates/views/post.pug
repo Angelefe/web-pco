@@ -9,19 +9,18 @@ block metadatos
 	meta(property="og:type", content="article")
 
 block contenido
-
-
-	.nav-side
-		a.nav-link(href='/') &larr; Atrás
-	.nota
-		if !post
-			h2 La nota no existe
-		else
-			h3.text-center= post.title
-			p Publicado 
-				if post.publishedDate
-					| el #{post._.publishedDate.format('DD/MM/YYYY')}
-			.img.center
-				img( src = img, alt='aceiteros')
-			hr
-		.post!= post.content.full
+	main.blanco
+		.nav-side
+			a.nav-link(href='/') &larr; Atrás
+		.nota
+			if !post
+				h2 La nota no existe
+			else
+				h3.text-center= post.title
+				p Publicado 
+					if post.publishedDate
+						| el #{post._.publishedDate.format('DD/MM/YYYY')}
+				.img.center
+					img( src = img, alt='aceiteros')
+				hr
+			.post!= post.content.full

@@ -5,8 +5,9 @@ block metadatos
 	meta(property="og:title", content="Partido de la Causa Obrera")
 	meta(property="og:description", content="Llamamos a los trabajadores conscientes, a la juventud y a las mujeres explotadas y oprimidas, a tomar junto con nosotros la gran tarea de construir un nuevo partido mundial de la revolución socialista.")
 block contenido
-	articles
-		each periodico in periodicos
-			- url = periodico.archivo.filename ? ("../uploads/" + periodico.archivo.filename) :  periodico.url
-			a.contenedor-periodico(href= url , target='_blank')       
-				img(src= periodico.image.secure_url, alt=periodico.title, width='180px')
+	main
+		articles
+			each periodico in periodicos
+				- url = periodico.archivo.filename ? ("../uploads/" + periodico.archivo.filename) :  periodico.url
+				a.contenedor-periodico(href= url , target='_blank')       
+					img(src= periodico.image.secure_url, alt=periodico.title, width='180px')

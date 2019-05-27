@@ -1,8 +1,9 @@
 extends ./layout.pug  
-block contenido  
-  .nota
-    - var url = post.image.secure_url 
-    .img
-      img( src = url, alt='aceiteros')
-    .titulo #{post.title}
-    .cuerpo !{post.content.extended}
+block contenido 
+	main
+		.nota
+			- var url = post.image.secure_url 
+			.img
+				img( src = url, alt='aceiteros')
+			.titulo #{post.title}
+			.cuerpo !{post.content.extended}
