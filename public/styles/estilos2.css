@@ -11,7 +11,7 @@ body{
 	flex-direction: column;
 	justify-content: space-between;
 	color: #000;
-	background-image: url('https://pre00.deviantart.net/c0d7/th/pre/i/2012/077/6/8/dark_red_01_texture_by_carlbert-d4t6oem.jpg');
+	background-image: url('/imagenes/fondo.jpg');
 	background-repeat: no-repeat;
 	background-size:cover;
 	background-position: center;

@@ -10,4 +10,4 @@ block contenido
 			each periodico in periodicos
 				- url = periodico.archivo.filename ? ("../uploads/" + periodico.archivo.filename) :  periodico.url
 				a.contenedor-periodico(href= url , target='_blank')       
-					img(src= periodico.image.secure_url, alt=periodico.title, width='180px')
+					img(src= periodico.image.secure_url.replace('/image/upload/','/image/upload/q_25/').replace('.png','.jpg'), alt=periodico.title, width='180px')

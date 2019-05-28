@@ -10,7 +10,8 @@ block contenido
 			- if(posts){
 				- var imgUrlMin
 				each post in posts
-					- imgUrlMin = post.image.secure_url.replace('/image/upload/','/image/upload/q_50/').replace('.png','.jpg')
+					- imgUrlMin = post.image.secure_url.replace('/image/upload/','/image/upload/q_25/').replace('.png','.jpg')
+					- console.log(imgUrlMin)
 					article
 						.titulo-container
 							a(href= "nota/"+post.slug, style='text-decoration: none; color: black;').titulo= post.title
@@ -27,11 +28,11 @@ block contenido
 		aside.d-none.d-lg-block
 			- if(ultimo_periodico && ultimo_internacional && ultimo_mujer){    
 				- ultimo_periodico_link = ultimo_periodico.url
-				- ultimo_periodico_img = ultimo_periodico.image.secure_url
+				- ultimo_periodico_img = ultimo_periodico.image.secure_url.replace('/image/upload/','/image/upload/q_25/').replace('.png','.jpg')
 				- ultimo_internacional_link = ultimo_internacional.url
-				- ultimo_internacional_img = ultimo_internacional.image.secure_url
+				- ultimo_internacional_img = ultimo_internacional.image.secure_url.replace('/image/upload/','/image/upload/q_25/').replace('.png','.jpg')
 				- ultimo_mujer_link = ultimo_mujer.url
-				- ultimo_mujer_img = ultimo_mujer.image.secure_url
+				- ultimo_mujer_img = ultimo_mujer.image.secure_url.replace('/image/upload/','/image/upload/q_25/').replace('.png','.jpg')
 				figure.noticia
 					a(href="/periodico", target='_blank')
 					.image 
