@@ -336,10 +336,6 @@ a.dropdown-item:hover{
 		}
 
 			footer {
-				background-image: url('../imagenes/fondo.fw.png');
-				background-repeat: no-repeat;
-				background-size:cover;
-				background-position: center;
 				color: #fff;
 				clear:both;
 				padding: 20px;
@@ -438,10 +434,6 @@ a.dropdown-item:hover{
 			color:black !important;
 		}
 		footer {
-			background-image: url('../imagenes/fondo.fw.png');
-			background-repeat: no-repeat;
-			background-size:cover;
-			background-position: center;
 			color: #fff;
 			clear:both;
 			padding: 20px, 0px;
